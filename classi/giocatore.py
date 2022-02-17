@@ -55,8 +55,8 @@ class Giocatore:
 
 
     def comandi(self):
-        print('1 - Guarda')
-        print('2 - Vai')
+        print('1 - Cerca nella stanza')
+        print('2 - Cambia stanza')
         print('3 - Esci dal gioco')
         x = input('Cosa voui fare:   ')
 

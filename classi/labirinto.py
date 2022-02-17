@@ -2,6 +2,9 @@
 
 
 
+from classi.utility import Utility
+
+
 class Labirinto:
 
     def __init__(self, giocatore, stanze):
@@ -19,8 +22,10 @@ class Labirinto:
         fine = False
         while fine == False:
             if self.__giocatore.get_punti_vita() != 0:
-                print(self.__giocatore.get_posizione())
-                print('Vite:  ',self.__giocatore.get_punti_vita())
+                print('\n')
+                print(self.__giocatore.get_nome(), ' ti trovi in ',self.__giocatore.get_posizione())
+                print('Hai ', self.__giocatore.get_punti_vita(), ' vite')
+                print('Cosa vuoi fare')
                 x = self.__giocatore.comandi()
                 if x == '1':
                     if self.__stanze[self.__giocatore.get_posizione()].get_manuale() == True:
@@ -31,7 +36,8 @@ class Labirinto:
 
                 elif x == '2':
                     esci = False
-                    print("Porte:  ", self.__stanze[self.__giocatore.get_posizione()].get_uscite())
+                    print('\n')
+                    print("Direzioni disponibili:  ", Utility.rimuovi_caratteri(str(self.__stanze[self.__giocatore.get_posizione()].get_uscite()), "{}'"))
                     x = self.__giocatore.muovi()
                     for i in self.__stanze[self.__giocatore.get_posizione()].get_uscite().keys():
                         if i == x:

@@ -4,8 +4,8 @@ from classi.giocatore import Giocatore
 from classi.labirinto import Labirinto
 from classi.stanza import Stanza
 
-
-g = Giocatore('afafa')
+nome = input('Inserisci il tuo nome:    ')
+g = Giocatore(nome)
 
 s = Stanza('Parcheggio', None, 'Atrio', None, None)
 s1 = Stanza('Atrio', 'Parcheggio', 'Presidenza', 'Stanza Relax', 'Segreteria')
@@ -23,8 +23,6 @@ l[manuale].set_manuale(True)
 
 stanze = {s.get_nome():s, s1.get_nome():s1, s2.get_nome():s2, s3.get_nome():s3, s4.get_nome():s4, s5.get_nome():s5, s6.get_nome():s6}
 
-
-#print(s.get_uscite())
 
 l = Labirinto(g, stanze)
 
