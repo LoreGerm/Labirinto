@@ -15,6 +15,24 @@ class Labirinto:
         return self.__stanze
     
 
+    def penitenza_vite(self):
+        if self.__stanze[self.__giocatore.get_posizione()].get_penitenza() == True:
+            self.__giocatore.set_punti_vita(self.__giocatore.get_punti_vita()-2)
+            print('\n')
+            print('Ops la stanza è maledetta hai perso 2 vite')
+        else:
+            self.__giocatore.set_punti_vita(self.__giocatore.get_punti_vita()-1)
+
+
+    def pozione(self):
+        if self.__stanze[self.__giocatore.get_posizione()].get_pozione() == True:
+            self.__giocatore.set_punti_vita(self.__giocatore.get_punti_vita()+2)
+            return True
+        else:
+            return False
+        
+
+
     def gioca(self):
         fine = False
         while fine == False:
@@ -29,6 +47,9 @@ class Labirinto:
                         print('\n')
                         print('HAI VINTO')
                         break
+                    elif self.pozione() == True:
+                        print('\n')
+                        print('Complimenti hai trovato la pozione, hai recuperato 2 vite')
                     else:
                         print('\n')
                         print("Non c'è nulla")
@@ -41,11 +62,7 @@ class Labirinto:
                     for i in self.__stanze[self.__giocatore.get_posizione()].get_uscite().keys():
                         if i == direzione:
                             self.__giocatore.set_posizione(self.__stanze[self.__giocatore.get_posizione()].get_uscite()[i])
-                            if self.__stanze[self.__giocatore.get_posizione()].get_penitenza() == True:
-                                self.__giocatore.set_punti_vita(self.__giocatore.get_punti_vita()-2)
-                                print('Ops la stanza è maledetta hai perso 2 vite')
-                            else:
-                                self.__giocatore.set_punti_vita(self.__giocatore.get_punti_vita()-1)
+                            self.penitenza_vite()
                             esci = True
                             break
                     if esci == False:
