@@ -32,6 +32,17 @@ class Labirinto:
             return False
         
 
+    def guarda(self):
+        if self.__stanze[self.__giocatore.get_posizione()].get_manuale() == True:
+            print('\n')
+            print('HAI VINTO')
+            return True
+        elif self.pozione() == True:
+            print('\n')
+            print('Complimenti hai trovato la pozione, hai recuperato 2 vite')
+        else:
+            print('\n')
+            print("Non c'è nulla")
 
     def gioca(self):
         fine = False
@@ -43,16 +54,7 @@ class Labirinto:
                 print('Cosa vuoi fare')
                 comando = self.__giocatore.comandi()
                 if comando == '1':
-                    if self.__stanze[self.__giocatore.get_posizione()].get_manuale() == True:
-                        print('\n')
-                        print('HAI VINTO')
-                        break
-                    elif self.pozione() == True:
-                        print('\n')
-                        print('Complimenti hai trovato la pozione, hai recuperato 2 vite')
-                    else:
-                        print('\n')
-                        print("Non c'è nulla")
+                    fine = self.guarda()
 
                 elif comando == '2':
                     esci = False

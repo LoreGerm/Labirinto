@@ -1,4 +1,5 @@
 
+from operator import truediv
 import random
 from classi.giocatore import Giocatore
 from classi.labirinto import Labirinto
@@ -7,7 +8,7 @@ from classi.stanza import Stanza
 nome = input('Inserisci il tuo nome:    ')
 g = Giocatore(nome)
 
-s = Stanza('Parcheggio', None, 'Atrio', None, None, False, False, True)
+s = Stanza('Parcheggio', None, 'Atrio')
 s1 = Stanza('Atrio', 'Parcheggio', 'Presidenza', 'Stanza Relax', 'Segreteria')
 s2 = Stanza('Segreteria', None, 'Aula azzurra', 'Atrio', 'Aula gialla')
 s3 = Stanza('Aula gialla', None, None, 'Segreteria', None)
