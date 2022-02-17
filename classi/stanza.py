@@ -34,3 +34,6 @@ class Stanza:
 
     def get_nome(self):
         return self.__nome
+
+    def set_manuale(self,m):
+        self.__manuale = m

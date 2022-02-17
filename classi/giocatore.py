@@ -10,7 +10,7 @@ class Giocatore:
 
     def __init__(self, nome):
         self.__nome = nome 
-        self.__posizione = "parcheggio"
+        self.__posizione = "Parcheggio"
 
     def set_nome(self, nome):
         self.__nome = nome 
@@ -46,14 +46,12 @@ class Giocatore:
 
 
     def comandi(self):
-        x = 0
-        while x != 3:
-            print('1 - Guarda')
-            print('2 - Vai')
-            print('3 - Esci dal gioco')
-            x = input('Cosa voui fare:   ')
+        print('1 - Guarda')
+        print('2 - Vai')
+        print('3 - Esci dal gioco')
+        x = input('Cosa voui fare:   ')
 
-            if x == '1' or x == '2' or x == '3':
-                return x
-            else:
-                return 'Comando non valido'
+        if x == '1' or x == '2' or x == '3':
+            return x
+        else:
+            return 'Comando non valido'
