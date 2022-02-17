@@ -3,13 +3,14 @@
 
 class Stanza:
 
-    def __init__(self, nome, nord, sud, est, ovest, manuale=False):
+    def __init__(self, nome, nord, sud, est, ovest, manuale=False, penitenza=False):
         self.__nome = nome
         self.__uscita_N = nord
         self.__uscita_S = sud
         self.__uscita_E = est
         self.__uscita_O = ovest
         self.__manuale = manuale
+        self.__penitenza = penitenza
 
 
     def get_uscite(self):
@@ -28,6 +29,8 @@ class Stanza:
 
         return x
 
+    def get_penitenza(self):
+        return self.__penitenza
 
     def get_manuale(self):
         return self.__manuale
@@ -37,6 +40,9 @@ class Stanza:
 
     def set_manuale(self,m):
         self.__manuale = m
+
+    def set_penitenza(self,p):
+        self.__penitenza = p
 
     def __repr__(self):
         return self.__nome

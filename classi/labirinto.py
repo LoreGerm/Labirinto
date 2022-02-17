@@ -41,6 +41,11 @@ class Labirinto:
                     for i in self.__stanze[self.__giocatore.get_posizione()].get_uscite().keys():
                         if i == direzione:
                             self.__giocatore.set_posizione(self.__stanze[self.__giocatore.get_posizione()].get_uscite()[i])
+                            if self.__stanze[self.__giocatore.get_posizione()].get_penitenza() == True:
+                                self.__giocatore.set_punti_vita(self.__giocatore.get_punti_vita()-2)
+                                print('Ops la stanza è maledetta hai perso 2 vite')
+                            else:
+                                self.__giocatore.set_punti_vita(self.__giocatore.get_punti_vita()-1)
                             esci = True
                             break
                     if esci == False:

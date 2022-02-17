@@ -46,16 +46,12 @@ class Giocatore:
 
         x = input('Dove vuoi andare:   ')
         if x == '1':
-            self.__punti_vita -= 1
             return 'Nord'
         elif x == '2':
-            self.__punti_vita -= 1
             return 'Sud'
         elif x == '3':
-            self.__punti_vita -= 1
             return 'Est'
         elif x == '4':
-            self.__punti_vita -= 1
             return 'Ovest'
         else:
             return 'Comando non valido'
