@@ -48,6 +48,21 @@ class Labirinto:
             return False
 
 
+    def muovi(self):
+        esci = False
+        print('\n')
+        print("Direzioni disponibili")
+        direzione = self.__giocatore.muovi(self.__stanze[self.__giocatore.get_posizione()].get_uscite())
+        for i in self.__stanze[self.__giocatore.get_posizione()].get_uscite().keys():
+            if i == direzione:
+                self.__giocatore.set_posizione(self.__stanze[self.__giocatore.get_posizione()].get_uscite()[i])
+                self.penitenza_vite()
+                esci = True
+                break
+        if esci == False:
+            print('Non valido')
+               
+
     def gioca(self):
         fine = False
         while fine == False:
@@ -59,20 +74,8 @@ class Labirinto:
                 comando = self.__giocatore.comandi()
                 if comando == '1':
                     fine = self.guarda()
-
                 elif comando == '2':
-                    esci = False
-                    print('\n')
-                    print("Direzioni disponibili")
-                    direzione = self.__giocatore.muovi(self.__stanze[self.__giocatore.get_posizione()].get_uscite())
-                    for i in self.__stanze[self.__giocatore.get_posizione()].get_uscite().keys():
-                        if i == direzione:
-                            self.__giocatore.set_posizione(self.__stanze[self.__giocatore.get_posizione()].get_uscite()[i])
-                            self.penitenza_vite()
-                            esci = True
-                            break
-                    if esci == False:
-                        print('Non valido')
+                    self.muovi()
                 elif comando == '3':
                     fine = True    
             else:

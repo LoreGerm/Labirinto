@@ -3,15 +3,15 @@
 
 class Stanza:
 
-    def __init__(self, nome, nord, sud, est, ovest, manuale=False, penitenza=False, pozione=False):
+    def __init__(self, nome, nord, sud, est, ovest):
         self.__nome = nome
         self.__uscita_N = nord
         self.__uscita_S = sud
         self.__uscita_E = est
         self.__uscita_O = ovest
-        self.__manuale = manuale
-        self.__penitenza = penitenza
-        self.__pozione = pozione
+        self.__manuale = False
+        self.__penitenza = False
+        self.__pozione = False
 
 
     def get_uscite(self):
