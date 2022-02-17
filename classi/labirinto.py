@@ -27,7 +27,7 @@ class Labirinto:
     def pozione(self):
         if self.__stanze[self.__giocatore.get_posizione()].get_pozione() == True:
             self.__giocatore.set_punti_vita(self.__giocatore.get_punti_vita()+2)
-            return True
+            return 'Complimenti hai trovato la pozione, hai recuperato 2 vite'
         else:
             return False
         
@@ -43,13 +43,14 @@ class Labirinto:
                 print('Cosa vuoi fare')
                 comando = self.__giocatore.comandi()
                 if comando == '1':
+                    pozione = self.pozione()
                     if self.__stanze[self.__giocatore.get_posizione()].get_manuale() == True:
                         print('\n')
                         print('HAI VINTO')
                         break
-                    elif self.pozione() == True:
+                    elif pozione != False:
                         print('\n')
-                        print('Complimenti hai trovato la pozione, hai recuperato 2 vite')
+                        print(pozione)
                     else:
                         print('\n')
                         print("Non c'è nulla")
