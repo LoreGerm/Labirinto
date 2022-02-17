@@ -32,11 +32,18 @@ class Giocatore:
         return self.__posizione
 
     
-    def muovi(self):
-        print('1 - Nord')
-        print('2 - Sud')
-        print('3 - Est')
-        print('4 - Ovest')
+    def muovi(self, direzioni):
+        
+        for i in direzioni:
+            if i == 'Nord':
+                print('1 - ', direzioni[i])
+            elif i == 'Sud':
+                print('2 - ', direzioni[i])
+            elif i == 'Est':
+                print('3 - ', direzioni[i])
+            elif i == 'Ovest':
+                print('4 - ', direzioni[i])
+
         x = input('Dove vuoi andare:   ')
         if x == '1':
             self.__punti_vita -= 1
