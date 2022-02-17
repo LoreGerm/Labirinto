@@ -37,3 +37,6 @@ class Stanza:
 
     def set_manuale(self,m):
         self.__manuale = m
+
+    def __repr__(self):
+        return self.__nome

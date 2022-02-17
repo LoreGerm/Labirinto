@@ -38,9 +38,18 @@ class Giocatore:
         print('3 - Est')
         print('4 - Ovest')
         x = input('Dove vuoi andare:   ')
-        if x == '1' or x == '2' or x == '3' or x == '4':
+        if x == '1':
             self.__punti_vita -= 1
-            return x
+            return 'Nord'
+        elif x == '2':
+            self.__punti_vita -= 1
+            return 'Sud'
+        elif x == '3':
+            self.__punti_vita -= 1
+            return 'Est'
+        elif x == '4':
+            self.__punti_vita -= 1
+            return 'Ovest'
         else:
             return 'Comando non valido'
 

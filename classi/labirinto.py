@@ -20,23 +20,25 @@ class Labirinto:
         while fine == False:
             if self.__giocatore.get_punti_vita() != 0:
                 print(self.__giocatore.get_posizione())
+                print('Vite:  ',self.__giocatore.get_punti_vita())
                 x = self.__giocatore.comandi()
                 if x == '1':
                     if self.__stanze[self.__giocatore.get_posizione()].get_manuale() == True:
                         print('Hai vinto')
+                        break
                     else:
                         print("Non c'è nulla")
 
                 elif x == '2':
                     esci = False
-                    print("Numero porte:  ", self.__stanze[self.__giocatore.get_posizione()].get_uscite())
+                    print("Porte:  ", self.__stanze[self.__giocatore.get_posizione()].get_uscite())
                     x = self.__giocatore.muovi()
-                    for i in self.__stanze[self.__giocatore.get_posizione()].keys():
+                    for i in self.__stanze[self.__giocatore.get_posizione()].get_uscite().keys():
                         if i == x:
-                            self.__giocatore.set_posizione(self.__stanze[self.__giocatore.get_posizione()])
+                            
+                            self.__giocatore.set_posizione(self.__stanze[self.__giocatore.get_posizione()].get_uscite()[i])
                             esci = True
                             break
-
                     if esci == False:
                         print('Non valido')
                 elif x == '3':
